@@ -12,6 +12,11 @@ const connect = function () {
   conn.write("Name: ADE");
   });
 
+  //client writing to server after establishing connection.
+  conn.on('connect', () => {
+  conn.write("Say: Hello");
+  });
+
   //   //client sending move up command to server to direct the snake.
   // conn.on('connect', () => {
   // conn.write("Move: up");
