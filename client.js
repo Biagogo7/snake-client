@@ -7,12 +7,28 @@ const connect = function () {
     port: 50541
   });
 
+    //client writing to server after establishing connection.
+  conn.on('connect', () => {
+  conn.write("Name: ADE");
+  });
+
+  //   //client sending move up command to server to direct the snake.
+  // conn.on('connect', () => {
+  // conn.write("Move: up");
+  // }); 
+
+
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
   // handles the incoming data from the server
   conn.on('data', (data) => {
     console.log('Server says: ', data);
+  });
+
+  // prints a "Successfully connected to the server" message when connection is established.
+  conn.on('connect', () => {
+    console.log('Successfully connected to the server');
   });
 
   return conn;
