@@ -10,7 +10,9 @@ console.log("Connecting ...");
 connect();
 
 // function call input.js
-setupInput();
+
+setupInput(connect());
+
 
 
 
